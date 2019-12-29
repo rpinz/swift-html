@@ -56,11 +56,12 @@ extension Node {
   public var isEmpty: Bool {
     switch self {
     case let .comment(string), let .doctype(string), let .raw(string), let .text(string):
-      return string.isEmpty
-    case .element:
-      return false
+      return false //string.isEmpty
+    case let .element(_, _, child):
+      return child.isEmpty
     case let .fragment(children):
-      return children.allSatisfy { $0.isEmpty }
+      return children.isEmpty
+        || children.count == 1 && children.first!.isEmpty //.allSatisfy { $0.isEmpty }
     }
   }
 }

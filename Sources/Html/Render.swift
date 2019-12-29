@@ -73,7 +73,7 @@ private func render(_ node: Node, into output: inout String) {
     output.append(tag)
     render(attribs, into: &output)
     output.append(">")
-    if !children.isEmpty || !voidElements.contains(tag) {
+    if !(children.isEmpty && voidElements.contains(tag)) {
       output.append(render(children))
       output.append("</")
       output.append(tag)
