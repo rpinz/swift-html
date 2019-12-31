@@ -458,6 +458,12 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<ol type=\"A\"></ol>", render(.ol(attributes: [.type(.upperAlpha)])))
     XCTAssertEqual("<ol type=\"i\"></ol>", render(.ol(attributes: [.type(.lowerRoman)])))
     XCTAssertEqual("<ol type=\"I\"></ol>", render(.ol(attributes: [.type(.upperRoman)])))
+
+    XCTAssertEqual("<noscript></noscript>", render(.noscript()))
+    XCTAssertEqual("<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\" sizes=\"180x180\">", render(.link(attributes: [.rel(.appleTouchIcon), .href("apple-touch-icon.png"), .init("sizes", "180x180")])))
+    XCTAssertEqual("<link rel=\"canonical\" href=\"/\">", render(.link(attributes: [.rel(.canonical), .href("/")])))
+    XCTAssertEqual("<link rel=\"manifest\" href=\"site.webmanifest\">", render(.link(attributes: [.rel(.manifest), .href("site.webmanifest")])))
+    XCTAssertEqual("<link rel=\"mask-icon\" href=\"safari-pinned-tab.svg\" color=\"#000000\">", render(.link(attributes: [.rel(.maskIcon), .href("safari-pinned-tab.svg"), .init("color", "#000000")])))
   }
 }
 
