@@ -1292,11 +1292,15 @@ extension Attribute where Element: HasRel {
     }
 
     public static var alternate: Rel { return Rel(rawValue: "alternate") }
+    public static var appleTouchIcon: Rel { return Rel(rawValue: "apple-touch-icon") }
     public static var author: Rel { return Rel(rawValue: "author") }
     public static var bookmark: Rel { return Rel(rawValue: "bookmark") }
+    public static var canonical: Rel { return Rel(rawValue: "canonical") }
     public static var help: Rel { return Rel(rawValue: "help") }
     public static var icon: Rel { return Rel(rawValue: "icon") }
     public static var license: Rel { return Rel(rawValue: "license") }
+    public static var manifest: Rel { return Rel(rawValue: "manifest") }
+    public static var maskIcon: Rel { return Rel(rawValue: "mask-icon") }
     public static var next: Rel { return Rel(rawValue: "next") }
     public static var nofollow: Rel { return Rel(rawValue: "nofollow") }
     public static var prev: Rel { return Rel(rawValue: "prev") }
