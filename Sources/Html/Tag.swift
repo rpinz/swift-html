@@ -59,6 +59,7 @@ public enum Tag {
   public enum Meta {}
   public enum Meter {}
   public enum Nav {}
+  public enum Noscript {}
   public enum Object {}
   public enum Ol {}
   public enum Optgroup {}

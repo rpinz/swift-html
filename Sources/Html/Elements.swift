@@ -520,6 +520,14 @@ extension Node {
     return .element("nav", attributes: attributes, .fragment(content))
   }
 
+  /// The `<noscript>` element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - content: Child nodes.
+  public static func noscript(attributes: [Attribute<Tag.Noscript>] = [], _ content: Node...) -> Node {
+    return .element("noscript", attributes: attributes, .fragment(content))
+  }
+
   // TODO: Required attribute "data" or "type"
   /// The `<object>` element can represent an external resource, which, depending on the type of the resource, will either be treated as an image, as a nested browsing context, or as an external resource to be processed by a plugin.
   ///
