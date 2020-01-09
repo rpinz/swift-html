@@ -39,7 +39,7 @@ final class AttributesTests: XCTestCase {
       """
       <img alt="blob" crossorigin height="42" src="src" width="43">
       """,
-      render(.img(attributes: [.alt("blob"), .crossorigin(.anonymous), .height(42), .src("src"), .width(43)]))
+      render(.img(attributes: [.alt("blob"), .crossorigin(.empty), .height(42), .src("src"), .width(43)]))
     )
     XCTAssertEqual(
       """
@@ -114,6 +114,18 @@ final class AttributesTests: XCTestCase {
       <script async charset="utf-8" defer nonce="blob" src="blob.js"></script>
       """,
       render(.script(attributes: [.async(true), .charset(.utf8), .defer(true), .nonce("blob"), .src("blob.js")]))
+    )
+    XCTAssertEqual(
+      """
+      <script integrity="0"></script>
+      """,
+      render(.script(attributes: [.integrity("0")]))
+    )
+    XCTAssertEqual(
+      """
+      <script crossorigin="anonymous"></script>
+      """,
+      render(.script(attributes: [.crossorigin(.anonymous)]))
     )
     XCTAssertEqual(
       """
@@ -464,6 +476,8 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<link rel=\"canonical\" href=\"/\">", render(.link(attributes: [.rel(.canonical), .href("/")])))
     XCTAssertEqual("<link rel=\"manifest\" href=\"site.webmanifest\">", render(.link(attributes: [.rel(.manifest), .href("site.webmanifest")])))
     XCTAssertEqual("<link rel=\"mask-icon\" href=\"safari-pinned-tab.svg\" color=\"#000000\">", render(.link(attributes: [.rel(.maskIcon), .href("safari-pinned-tab.svg"), .init("color", "#000000")])))
+    XCTAssertEqual("<!--comment-->", render(.comment("comment")))
+    XCTAssertEqual("<head><!--comment--></head>", render(.head(.comment("comment"))))
   }
 }
 

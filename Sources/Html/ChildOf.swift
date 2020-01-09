@@ -18,6 +18,10 @@ extension ChildOf: ExpressibleByArrayLiteral {
 }
 
 extension ChildOf {
+  public static func comment(_ string: String) -> ChildOf {
+    return .init(.comment(string))
+  }
+
   /// The `<script>` element allows authors to include dynamic script and data blocks in their documents. The element does not represent content for the user.
   ///
   /// - Parameter attributes: Attributes.
@@ -180,6 +184,10 @@ extension ChildOf where Element == Tag.Head {
   ///   - attributes: Attributes.
   public static func base(attributes: [Attribute<Tag.Base>] = []) -> ChildOf {
     return .init(.element("base", attributes: attributes, []))
+  }
+
+  public static func comment(_ string: String) -> ChildOf {
+    return .init(.comment(string))
   }
 
   /// The `<link>` element allows authors to link their document to other resources.

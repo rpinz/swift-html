@@ -24,6 +24,12 @@ extension EventsTests {
     ]
 }
 
+extension HTML5BoilerPlateTests {
+  static let __allTests = [
+    ("testHTML5BoilerPlate", testHTML5BoilerPlate),
+    ]
+}
+
 extension MediaTypeTests {
   static let __allTests = [
     ("testMediaType", testMediaType),
@@ -37,6 +43,7 @@ public func __allTests() -> [XCTestCaseEntry] {
     testCase(AttributesTests.__allTests),
     testCase(ElementsTests.__allTests),
     testCase(EventsTests.__allTests),
+    testCase(HTML5BoilerPlateTests.__allTests),
     testCase(MediaTypeTests.__allTests),
   ]
 }

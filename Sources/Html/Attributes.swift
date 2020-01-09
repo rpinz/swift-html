@@ -672,6 +672,13 @@ extension Attribute where Element == Tag.Script {
     return .init("defer", value ? "" : nil)
   }
 
+  /// Subresource Integrity.
+  ///
+  /// - Parameter value: Subresource Integrity.
+  public static func integrity(_ value: String) -> Attribute {
+    return .init("integrity", value)
+  }
+
   /// Cryptographic nonce used in Content Security Policy checks.
   ///
   /// - Parameter value: Cryptographic nonce used in Content Security Policy checks.
@@ -933,7 +940,10 @@ extension Tag.Script: HasCrossorigin {}
 extension Attribute where Element: HasCrossorigin {
   public enum Crossorigin: String {
     /// Requests for the element will have their mode set to "`cors`" and their credentials mode set to "`same-origin`".
-    case anonymous = ""
+    case empty = ""
+
+    /// Requests for the element will have their mode set to "`cors`" and their credentials mode set to "`anonymous`".
+    case anonymous = "anonymous"
 
     /// Requests for the element will have their mode set to "`cors`" and their credentials mode set to "`include`".
     case useCredentials = "use-credentials"
